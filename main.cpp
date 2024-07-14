@@ -364,7 +364,7 @@ void main() {
 
         
 })";	
-	//retrieves color intensity based off distances from the position map
+	//retrieves color based off distances from the position map and color of neighboring pixels
 	static unsigned int diffusion = CreateShader(identityVS, diffusionFS);
 	
 	glUseProgram(diffusion);
