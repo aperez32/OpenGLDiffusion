@@ -93,7 +93,7 @@ int main(int argc, char *argv[]){
 	
 	//read pixels from the texture
     	unsigned char* pixels = new unsigned char[width * height * 4];
-    	glBindTexture(GL_TEXTURE_2D, swapTex);
+    	glBindTexture(GL_TEXTURE_2D, image);
     	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE,  pixels);	
 	stbi_write_png("out.png", width, height, channels,/*data*/pixels, width*channels);
 
