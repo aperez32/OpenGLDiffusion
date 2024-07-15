@@ -25,8 +25,10 @@ int main(int argc, char *argv[]){
 	int width, height, channels;		
 	unsigned char* imageData = stbi_load(argv[1],&width,&height,&channels, 0);	
 	//unsigned char* imageData = stbi_load("./input/crab.png",&width,&height,&channels, 0);
-	if(imageData == NULL) std::cout << "failed to load image\n";
-
+	if(imageData == NULL){ 
+		std::cout << "failed to load image\n";
+		return -1;
+	}
 	//intialization stuff
 	if (!glfwInit()) std::cerr << "Failed to initialize GLFW" << std::endl; 
        	glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
