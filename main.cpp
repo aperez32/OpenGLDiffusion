@@ -388,10 +388,6 @@ void main() {
 		glUniform1f(glGetUniformLocation(diffusion, "factor"), 0.92387*(1-i/iterations));
 		renderQuad();	
 	}
-	
-	glBindTexture(GL_TEXTURE_2D, swapTex);	
-	glCopyTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 0, 0,width, height, 0);
-
 	glDeleteFramebuffers(1,&FBO);	
 }
 
