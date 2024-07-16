@@ -95,7 +95,7 @@ int main(int argc, char* argv[]) {
 
 
 	//read pixels from the texture
-	unsigned char* pixels = new unsigned char[width * (height) * 4];
+	unsigned char* pixels = new unsigned char[width * height * 4];
 	glBindTexture(GL_TEXTURE_2D, image);
 	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 	stbi_write_png("out.png", width, height, channels,/*data*/pixels, width * channels);
@@ -258,7 +258,7 @@ void main() {
 
 		for (int i = 0; i < length; i++) {
 			int textureIndex = i % 2;
-			float translation = (j % 2 == 0) ? ((i + 1.5f) / length * 2.0f - 1.0f) : ((length - i - 0.5f) / length * 2.0f - 1.0f);
+			float translation = (j % 2 == 0) ? ((i + 1.01f) / length * 2.0f - 1.0f) : ((length - i - 0.5f) / length * 2.0f - 1.0f);
 			if (j < 2) glUniform2f(glGetUniformLocation(sweep, "translation"), translation, 0);
 			else glUniform2f(glGetUniformLocation(sweep, "translation"), 0, translation);
 
