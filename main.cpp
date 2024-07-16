@@ -98,7 +98,8 @@ int main(int argc, char *argv[]){
     	glBindTexture(GL_TEXTURE_2D, image);
     	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE,  pixels);	
 	stbi_write_png("out.png", width, height, channels,/*data*/pixels, width*channels);
-
+	std::cout << "Generated out.png"<< std::endl;
+	
 	//cleanup
 	glDeleteTextures(1,&image);
 	glDeleteTextures(1,&posTex0);
@@ -385,7 +386,7 @@ void main() {
 		if(i%2==0) glBindTexture(GL_TEXTURE_2D, image);
 		else glBindTexture(GL_TEXTURE_2D, swapTex);	
 		glUniform1i(glGetUniformLocation(diffusion, "imageTexture"), 0);		
-		glUniform1f(glGetUniformLocation(diffusion, "factor"), 0.92387*(1-i/iterations));
+		glUniform1f(glGetUniformLocation(diffusion, "factor"), 0.92387*(1-static_cast<float>(i)/iterations));
 		renderQuad();	
 	}
 	glDeleteFramebuffers(1,&FBO);	
